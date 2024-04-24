@@ -1,0 +1,7 @@
+1. psql postgres
+2. CREATE DATABASE l0wb;
+3. migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?sslmode=disable' up
+
+nats streaming
+4. docker run -p 4223:4223 -p 8223:8223 nats-streaming -p 4223 -m 8223
+https://hub.docker.com/_/nats-streaming
