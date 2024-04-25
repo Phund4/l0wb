@@ -9,19 +9,19 @@
 ```bash
 docker run -p 4223:4223 -p 8223:8223 nats-streaming -p 4223 -m 8223
 ```
-<br/>
+
 3. Для запуска сервера использовать команду
 <br/>
 
 ``` bash
 go run cmd/main.go
 ```
-<br/>
+
 В папке Schema добавлены миграции Postgres. Для корректного создания БД требуется:
 <br/>
 1. Запустить postgres.
 <br/>
-2. Создать БД l0wb
+2. Создать БД С именем l0wb и в конфигах изменить настройки
 <br/>
 3. Командой ниже мигрировать 
 <br/>
@@ -29,7 +29,7 @@ go run cmd/main.go
 ```bash
 migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?sslmode=disable' up
 ```
-<br/>
+
 4. Если вы хотите отменить миграцию воспользуйтесь командой
 <br/>
 
