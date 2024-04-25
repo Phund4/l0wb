@@ -17,6 +17,7 @@ type Publisher struct {
 	name string
 }
 
+// Создание нового Publisher
 func NewPublisher(conn *stan.Conn) *Publisher {
 	return &Publisher{
 		name: "Publisher",
@@ -24,7 +25,7 @@ func NewPublisher(conn *stan.Conn) *Publisher {
 	}
 }
 
-// Тестовый скрипт публикации данных Order
+// Публикации данных Order
 func (p *Publisher) Publish() {
 	order := createOrder();
 	orderData, err := json.Marshal(order)
@@ -58,6 +59,7 @@ func randomStr(str string, strLen int) string {
 	return res
 }
 
+// Создание Order
 func createOrder() db.Order {
 	letters := "abcdefghijklmnopqrstuvwxyz"
 	numbers := "1234567890"
@@ -106,7 +108,7 @@ func createOrder() db.Order {
 		TrackNumber:       randomStr(letters, 6),
 		Entry:             randomStr(letters, 6),
 		Locale:            randomStr(letters, 6),
-		InternalSignature: "",
+		InternalSignature: "test-sign",
 		CustomerID:        randomStr(letters, 6),
 		DeliveryService:   randomStr(letters, 6),
 		ShardKey:          randomStr(numbers, 4),

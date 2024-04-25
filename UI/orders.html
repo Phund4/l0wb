@@ -64,6 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{range .Orders}}
                         <tr>
                             <td>{{.OrderUID}}</td>
                             <td>{{.TrackNumber}}</td>
@@ -77,6 +78,7 @@
                             <td>{{.DateCreated}}</td>
                             <td>{{.OofShard}}</td>
                         </tr>
+                        {{end}}
                     </tbody>
                 </table>
             </div>

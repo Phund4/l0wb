@@ -19,12 +19,6 @@ type Order struct {
 	OofShard          string
 }
 
-type OrderOut struct {
-	OrderUID          string
-	TrackNumber       string
-	Entry             string
-}
-
 type Delivery struct {
 	Name    string
 	Phone   string

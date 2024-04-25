@@ -17,18 +17,21 @@ const (
 	itemFields     = `ChrtID, TrackNumber, Price, RID, Name, Sale, Size, TotalPrice, NmID, Brand, Status`
 )
 
+// Структура DB
 type DB struct {
 	sqlxDB *sqlx.DB
 	cache  *Cache
 	name   string
 }
 
+// Создание нового DB
 func NewDB(csh *Cache) *DB {
 	db := DB{cache: csh}
 	db.Init()
 	return &db
 }
 
+// Получение Order из Cache
 func (db *DB) GetOrderFromCache(OrderUid string) (Order, error) {
 	log.Printf("Service is trying to find the order %s...\n", OrderUid)
 	return db.cache.GetOrder(OrderUid)
@@ -153,6 +156,7 @@ func (db *DB) AddOrder(o Order) (int64, error) {
 	return 0, nil
 }
 
+// Загрузка всех Order из DB в Cache 
 func (db *DB) UploadCache() error {
 	log.Println("Service is trying to upload cache...")
 	tx, err := db.sqlxDB.Beginx()

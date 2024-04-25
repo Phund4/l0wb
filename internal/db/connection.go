@@ -9,7 +9,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// Инициализация пула соединений
+// Инициализация соединения Postgres
 func (db *DB) Init() error {
 	db.name = "Postgres"
 	dbUrl := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=%s",

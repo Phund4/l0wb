@@ -18,6 +18,7 @@ type Subscriber struct {
 	name     string
 }
 
+// Создание нового Subscriber
 func NewSubscriber(db *db.DB, conn *stan.Conn) *Subscriber {
 	return &Subscriber{
 		name:     "Subscriber",
@@ -26,7 +27,7 @@ func NewSubscriber(db *db.DB, conn *stan.Conn) *Subscriber {
 	}
 }
 
-// Simple Async Subscriber
+// Подписка Subscriber
 func (s *Subscriber) Subscribe() {
 	var err error
 
@@ -58,6 +59,7 @@ func (s *Subscriber) Subscribe() {
 	log.Printf("%s: subscribed to subject %s\n", s.name, os.Getenv("NATS_SUBJECT"))
 }
 
+// Парсинг полученных данных и отправка в DB и Cache
 func (s *Subscriber) messageHandler(data []byte) bool {
 	recievedOrder := db.Order{}
 	err := json.Unmarshal(data, &recievedOrder)
@@ -82,6 +84,7 @@ func (s *Subscriber) messageHandler(data []byte) bool {
 	return true
 }
 
+// Отписка
 func (s *Subscriber) Unsubscribe() {
 	if s.sub != nil {
 		s.sub.Unsubscribe()
