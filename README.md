@@ -34,6 +34,8 @@ migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?s
 migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?sslmode=disable' down
 ```
 
-<h3>Чтобы убедиться в работе сервиса необходимо зайти на http://localhost:3333/
+<h4>Чтобы убедиться в работе сервиса необходимо зайти на http://localhost:3333/
+
 По этому адресу отображаются все существующие Order.
-Указав правильный OrderUID и нажав Search вам отобразится конкретный Order</h3>
+
+Указав правильный OrderUID и нажав Search вам отобразится конкретный Order</h4>
