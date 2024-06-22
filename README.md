@@ -25,13 +25,13 @@ go run cmd/main.go
 3. Командой ниже мигрировать 
 
 ```bash
-migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?sslmode=disable' up
+migrate -path ./schema -database 'postgres://DB_USER:DB_PASS@DB_HOST:DB_PORT/DB_NAME?sslmode=disable' up
 ```
 
 4. Если вы хотите отменить миграцию воспользуйтесь командой
 
 ```bash
-migrate -path ./schema -database 'postgres://phunda:098908@localhost:5432/l0wb?sslmode=disable' down
+migrate -path ./schema -database 'postgres://DB_USER:DB_PASS@DB_HOST:DB_PORT/DB_NAME?sslmode=disable' down
 ```
 
 <h4>Чтобы убедиться в работе сервиса необходимо зайти на http://localhost:3333/
